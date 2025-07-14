@@ -52,50 +52,50 @@ const CoursePage: React.FC = () => {
   const progressPercentage = (completedVideos / totalVideos) * 100;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12 min-h-screen">
-      <div className="mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12 min-h-screen">
+      <div className="mb-8 md:mb-12">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
           Introduction to AI Course
         </h1>
-        <p className="text-lg text-gray-600">
-          Explore the fascinating world of Artificial Intelligence through 10 engaging video lessons
+        <p className="text-base md:text-lg text-gray-600">
+          Explore the fascinating world of Artificial Intelligence through engaging video lessons.
         </p>
       </div>
 
       {/* Course Info Card */}
-      <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg mb-12 border border-gray-100">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center space-x-6">
-            <div className="bg-sky-100 rounded-2xl p-4">
-              <Brain className="h-8 w-8 text-sky-600" />
+      <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg mb-8 md:mb-12 border border-gray-100">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div className="flex items-center space-x-4 md:space-x-6">
+            <div className="bg-sky-100 rounded-2xl p-3 md:p-4 flex-shrink-0">
+              <Brain className="h-7 w-7 md:h-8 md:w-8 text-sky-600" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Introduction to AI</h2>
-              <div className="flex items-center space-x-6 text-gray-600 text-base mt-2">
-                <div className="flex items-center space-x-1">
-                  <Users className="h-5 w-5" />
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Introduction to AI</h2>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center sm:space-x-4 text-gray-600 text-sm md:text-base mt-2">
+                <div className="flex items-center space-x-1.5">
+                  <Users className="h-4 w-4 md:h-5 md:w-5" />
                   <span>{totalVideos} Videos</span>
                 </div>
-                <div className="flex items-center space-x-1">
-                  <Clock className="h-5 w-5" />
+                <div className="flex items-center space-x-1.5">
+                  <Clock className="h-4 w-4 md:h-5 md:w-5" />
                   <span>~2 hours total</span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-yellow-200 text-yellow-800 px-4 py-2 rounded-xl text-sm font-semibold">
+          <div className="bg-yellow-200 text-yellow-800 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold self-start sm:self-center">
             Beginner Friendly
           </div>
         </div>
 
-        <div className="mb-4">
-          <div className="flex justify-between items-center text-base text-gray-600 mb-2">
+        <div>
+          <div className="flex justify-between items-center text-sm md:text-base text-gray-600 mb-2">
             <span>Course Progress</span>
             <span>{completedVideos}/{totalVideos} videos completed</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-3">
+          <div className="w-full bg-gray-200 rounded-full h-2.5 md:h-3">
             <div 
-              className="bg-sky-500 h-3 rounded-full transition-all duration-500"
+              className="bg-sky-500 h-2.5 md:h-3 rounded-full transition-all duration-500"
               style={{ width: `${progressPercentage}%` }}
             ></div>
           </div>
@@ -103,29 +103,29 @@ const CoursePage: React.FC = () => {
       </div>
 
       {/* Lessons List */}
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {lessons.map((lesson) => (
-          <div key={lesson.id} className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-6">
-                <div className="text-3xl">{lesson.icon}</div>
-                <div>
-                  <div className="flex items-center space-x-3 mb-2">
-                    <h3 className="text-xl font-bold text-gray-900">
+          <div key={lesson.id} className="bg-white/90 backdrop-blur-sm rounded-2xl p-5 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex items-start space-x-4 md:space-x-6 flex-grow">
+                <div className="text-2xl md:text-3xl mt-1">{lesson.icon}</div>
+                <div className="flex-grow">
+                  <div className="flex items-center space-x-3 mb-1">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900">
                       {lesson.id}. {lesson.title}
                     </h3>
                     {lesson.completed && (
-                      <CheckCircle className="h-6 w-6 text-green-500" />
+                      <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-green-500 flex-shrink-0" />
                     )}
                   </div>
-                  <p className="text-gray-600 mb-3 leading-relaxed">{lesson.description}</p>
-                  <div className="flex items-center space-x-6">
-                    <div className="flex items-center space-x-2 text-gray-500">
-                      <Clock className="h-5 w-5" />
+                  <p className="text-gray-600 mb-3 leading-relaxed text-sm md:text-base">{lesson.description}</p>
+                  <div className="flex items-center space-x-4 md:space-x-6">
+                    <div className="flex items-center space-x-2 text-gray-500 text-sm md:text-base">
+                      <Clock className="h-4 w-4 md:h-5 md:w-5" />
                       <span>{lesson.duration}</span>
                     </div>
                     {lesson.completed && (
-                      <span className="bg-green-100 text-green-800 px-3 py-1 rounded-xl text-sm font-semibold">
+                      <span className="bg-green-100 text-green-800 px-2.5 py-1 rounded-lg text-xs md:text-sm font-semibold">
                         Completed
                       </span>
                     )}
@@ -134,9 +134,9 @@ const CoursePage: React.FC = () => {
               </div>
               <Link
                 to="/videos"
-                className="bg-sky-500 hover:bg-sky-600 text-white p-4 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg"
+                className="w-full sm:w-auto flex justify-center bg-sky-500 hover:bg-sky-600 text-white p-3 md:p-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex-shrink-0"
               >
-                <PlayCircle className="h-6 w-6" />
+                <PlayCircle className="h-5 w-5 md:h-6 md:w-6" />
               </Link>
             </div>
           </div>
